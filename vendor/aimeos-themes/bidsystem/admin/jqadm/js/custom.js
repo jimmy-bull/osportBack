@@ -1,0 +1,4 @@
+/*
+ * Custom bidsystem JS
+ */
+

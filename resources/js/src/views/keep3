@@ -1,0 +1,73 @@
+        // if (onWich == 'detail') {
+        //     if (images.length >= 15) {
+        //         setwichON(onWich)
+        //         for (let index = 0; index < document.querySelectorAll('.sideBArkids').length; index++) {
+        //             document.querySelectorAll('.sideBArkids')[index].style.background = 'white'
+        //         }
+        //         e.style.background = '#f0f1f5';
+        //     } else {
+        //         setformValidationErrorMEssage('To add details about your lot, you must upload at least 15 images!')
+        //         handleClickOpen();
+        //     }
+        // }
+        // else if (onWich == 'estimated') {
+        //     let nulledPresent = false;
+        //     Object.values(detailGlobalError).map((data, key) => {
+        //         if (data == null || data.length == 0) {
+        //             nulledPresent = true;
+        //         }
+        //     })
+        //     if (description == '') {
+        //         nulledPresent = true;
+        //     }
+        //     if (nulledPresent == true) {
+        //         setformValidationErrorMEssage('To add estimated values ​to your lot, you must complete all detail fields correctly!!')
+        //         handleClickOpen();
+        //     } else {
+        //         setwichON(onWich)
+        //         for (let index = 0; index < document.querySelectorAll('.sideBArkids').length; index++) {
+        //             document.querySelectorAll('.sideBArkids')[index].style.background = 'white'
+        //         }
+        //         e.style.background = '#f0f1f5';
+        //     }
+        // }
+        // else {
+
+
+
+
+                // window.Echo = new Echo({
+        //     broadcaster: "pusher",
+        //     key: process.env.MIX_PUSHER_APP_KEY,
+        //     forceTLS: false,
+        //     // wsHost: window.location.hostname,
+        //     // wsPort: 6001,
+        //     // wssPort: 6001,
+        //     // disableStats: true,
+        // });
+        // window.Echo.channel("bid-system-channel").listen(".bidsystem", (e) => {
+
+        //     // if (e.currentBid === null) {
+        //     //     setcurrentBid(0);
+        //     // } else {
+        //     //     setcurrentBid(e.currentBid);
+        //     // }
+        //     // setnextMinimumBid(e.nextMinimumBid);
+        //     // setbaseValue(e.nextMinimumBid);
+        //     // setbiderrDatta(e.biderrDatta);
+        //     alert(e)
+        // });
+
+        // window.Echo.channel("mychannel-me").listen("App\\Events\\Rtestio", (e) => {
+
+        //     // if (e.currentBid === null) {
+        //     //     setcurrentBid(0);
+        //     // } else {
+        //     //     setcurrentBid(e.currentBid);
+        //     // }
+        //     // setnextMinimumBid(e.nextMinimumBid);
+        //     // setbaseValue(e.nextMinimumBid);
+        //     // setbiderrDatta(e.biderrDatta);
+        //     alert(e)
+        // });
+        // console.log(window.Echo)
