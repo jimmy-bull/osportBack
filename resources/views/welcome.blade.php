@@ -30,7 +30,7 @@
         }
     </style>
     <div id="root">
-        <p id="tosee">some text</p>
+        <p id="tosee">some text jimmy</p>
         <input type="text" name="" id="totype" style="width:100%">
     </div>
     <script type="module" src="{{ asset('js/socket.js') }}"></script>
