@@ -112,9 +112,9 @@ class ColumnTokenizer extends BaseColumnTokenizer
             $this->putBack($piece);
         }
 
-        if(Str::contains($this->columnDataType, 'text')){
+        if (Str::contains($this->columnDataType, 'text')) {
             //text column types are explicitly nullable unless set to NOT NULL
-            if($this->definition->isNullable() === null){
+            if ($this->definition->isNullable() === null) {
                 $this->definition->setNullable(true);
             }
         }
@@ -134,6 +134,9 @@ class ColumnTokenizer extends BaseColumnTokenizer
                 $this->definition
                     ->setDefaultValue(null)
                     ->setUseCurrent(true);
+            } elseif (preg_match("/b'([01]+)'/i", $this->definition->getDefaultValue(), $matches)) {
+                // Binary digit, so let's convert to PHP's version
+                $this->definition->setDefaultValue(ValueToString::castBinary($matches[1]));
             }
             if ($this->definition->getDefaultValue() !== null) {
                 if ($this->isNumberType()) {
@@ -144,7 +147,9 @@ class ColumnTokenizer extends BaseColumnTokenizer
                         $this->definition->setDefaultValue(ValueToString::castFloat($this->definition->getDefaultValue()));
                     }
                 } else {
-                    $this->definition->setDefaultValue((string) $this->definition->getDefaultValue());
+                    if (! $this->isBinaryType()) {
+                        $this->definition->setDefaultValue((string) $this->definition->getDefaultValue());
+                    }
                 }
             }
         } else {
@@ -159,10 +164,10 @@ class ColumnTokenizer extends BaseColumnTokenizer
             // next piece is the comment content
             $this->definition->setComment($this->consume());
         } else {
-          $this->putBack($piece);
+            $this->putBack($piece);
         }
     }
-  
+
     protected function consumeCharacterSet()
     {
         $piece = $this->consume();
@@ -363,6 +368,11 @@ class ColumnTokenizer extends BaseColumnTokenizer
     protected function isArrayType()
     {
         return Str::contains($this->columnDataType, ['enum', 'set']);
+    }
+
+    protected function isBinaryType()
+    {
+        return Str::contains($this->columnDataType, ['bit']);
     }
 
     /**

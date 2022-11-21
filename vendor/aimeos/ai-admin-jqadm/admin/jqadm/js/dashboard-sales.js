@@ -179,7 +179,7 @@
 				do {
 					let day = date.toISOString().substr(0, 10);
 
-					data.push({x: date.toISOString(), y: Number(entry['attributes'][day] || 0).toFixed()});
+					data.push({x: date.toISOString(), y: Number(entry['attributes'][day] || 0).toFixed(2)});
 					date.add(1, 'days');
 				} while(date.isBefore(enddate, 'day') || date.isSame(enddate, 'day'));
 
@@ -218,7 +218,7 @@
 		const self = this;
 		const ctx = this.context('.order-salesmonth');
 		const keys = "order.base.currencyid,order.cmonth";
-		const startdate = moment().utc().startOf('day').subtract(12, 'months');
+		const startdate = moment().utc().startOf('month').subtract(12, 'months');
 		const enddate = moment().utc().endOf('day');
 		const criteria = {"&&": [
 			{">=": {"order.statuspayment": 5}},

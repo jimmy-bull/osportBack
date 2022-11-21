@@ -100,9 +100,6 @@
 		},{
 			"text": "supplier.js",
 			"path": "js/"
-		},{
-			"text": "jimmy.js",
-			"path": "js/"
 		}]
 	}],
 	"resources" : []

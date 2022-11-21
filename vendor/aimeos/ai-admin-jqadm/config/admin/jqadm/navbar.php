@@ -68,5 +68,4 @@ return [
 		220 => 'type/text/lists',
 	],
 	80 => 'log',
-	81 => 'products',
 ];

@@ -43,7 +43,7 @@
 				<input class="form-control" type="password" name="password" required="required" placeholder="Password" aria-describedby="password-addon" />
 			</div>
 			<hr>
-			<button class="btn btn-block btn-lg btn-primary" type="submit">Login hhhh</button>
+			<button class="btn btn-block btn-lg btn-primary" type="submit">Login</button>
 		</form>
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script>

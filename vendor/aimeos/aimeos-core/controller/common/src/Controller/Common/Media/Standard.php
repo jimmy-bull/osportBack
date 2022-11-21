@@ -117,7 +117,7 @@ class Standard
 
 		if( $fs->has( $path ) )
 		{
-			$newPath = $this->getFilePath( $path, 'files', $item->getMimeType() );
+			$newPath = $this->getFilePath( substr( basename( $path ), 9 ), 'files', $item->getMimeType() );
 			$fs->copy( $path, $newPath );
 			$item->setUrl( $newPath );
 		}
@@ -128,7 +128,7 @@ class Standard
 			{
 				try
 				{
-					$newPath = $this->getFilePath( $preview, 'preview', pathinfo( $preview, PATHINFO_EXTENSION ) );
+					$newPath = $this->getFilePath( substr( basename( $preview ), 9 ), 'preview', pathinfo( $preview, PATHINFO_EXTENSION ) );
 					$fs->copy( $preview, $newPath );
 					$previews[$size] = $newPath;
 				}
@@ -189,7 +189,7 @@ class Standard
 		$fs = $this->context->fs( $fsname );
 		$is = ( $fs instanceof \Aimeos\MW\Filesystem\MetaIface ? true : false );
 
-		if( !$force && !( $is && date( 'Y-m-d H:i:s', $fs->time( $item->getUrl() ) ) < $item->getTimeModified() ) ) {
+		if( !$force && $is && date( 'Y-m-d H:i:s', $fs->time( $item->getUrl() ) ) < $item->getTimeModified() ) {
 			return $item;
 		}
 
